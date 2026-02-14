@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Mohak ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:#FFE66D;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* SECTIONS */
+.section{
+  display:none;
+  width:100%;
+  min-height:100vh;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.active{
+  display:flex;
+}
+
+button{
+  padding:14px 34px;
+  border:none;
+  border-radius:30px;
+  background:#ff5e7e;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+input{
+  padding:12px;
+  border-radius:20px;
+  border:none;
+  margin-top:15px;
+  text-align:center;
+  font-size:16px;
+}
+
+/* LETTER */
+.letter-box{
+  background:white;
+  max-width:800px;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  text-align:left;
+  line-height:1.8;
+}
+
+/* PHOTOS */
+.photos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+  gap:15px;
+  margin:25px 0;
+}
+
+.photos img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+/* GIF */
+.gif{
+  width:200px;
+}
+
+/* VALENTINE */
+.valentine{
+  margin-top:40px;
+  text-align:center;
+}
+
+#no{
+  position:relative;
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPEN -->
+<div class="section active" id="open">
+  <div>
+    <img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"><br><br>
+    <button onclick="goPassword()">Open 💛</button>
+  </div>
+</div>
+
+<!-- PASSWORD -->
+<div class="section" id="password">
+  <div>
+    <h2>🔐 Enter Password</h2>
+    <input id="pass" type="password" placeholder="Password"
+      onkeydown="if(event.key==='Enter') checkPass()"><br>
+    <button onclick="checkPass()">Enter ❤️</button>
+  </div>
+</div>
+
+<!-- LETTER -->
+<div class="section" id="letter">
+  <div class="letter-box">
+    <p>
+      Mohak ❤️<br><br>
+
+      I don’t know where to begin, because no words ever feel enough when it comes to you.  
+      Somewhere between random conversations, shared smiles, and quiet moments, you slowly became a part of my everyday life — without even trying.  
+
+      <br><br>
+      You are the kind of person who brings calm just by being there.  
+      On days when everything feels heavy, thinking about you makes things lighter.  
+      And on good days, you somehow make them even better.
+
+      <br><br>
+      These moments below… they may look simple to others,  
+      but for me, they hold memories, emotions, and a feeling I never want to lose.
+    </p>
+
+    <div class="photos">
+      <img src="pic1.jpg">
+      <img src="pic2.jpg">
+      <img src="pic3.jpg">
+      <img src="pic4.jpg">
+    </div>
+
+    <p>
+      I may not always say things perfectly,  
+      I may mess up sometimes,  
+      but one thing I am always sure about is how real my feelings are for you.
+
+      <br><br>
+      I don’t promise perfection —  
+      I promise effort, honesty, loyalty, and choosing you even when things are not easy.  
+
+      <br><br>
+      Happy Valentine’s Day, Mohak 💛  
+      You mean more to me than you will ever know.
+    </p>
+
+    <div class="valentine">
+      <h2>Will you be my Valentine? 💖</h2>
+      <button onclick="yes()">Yes 💕</button>
+      <button id="no" onmouseover="moveNo()">No 😌</button>
+      <p id="msg" style="display:none;margin-top:15px;color:#ff5e7e;font-size:20px;">
+        I’m so happy ❤️
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function goPassword(){
+  show("open","password");
+}
+
+function checkPass(){
+  const p=document.getElementById("pass").value;
+  if(p==="mohak"){
+    show("password","letter");
+  }else{
+    alert("Wrong password 😌");
+  }
+}
+
+function show(hide,show){
+  document.getElementById(hide).classList.remove("active");
+  document.getElementById(show).classList.add("active");
+}
+
+function moveNo(){
+  const no=document.getElementById("no");
+  no.style.left=Math.random()*60+"px";
+  no.style.top=Math.random()*30+"px";
+}
+
+function yes(){
+  document.getElementById("msg").style.display="block";
+}
+</script>
+
+</body>
+</html>
